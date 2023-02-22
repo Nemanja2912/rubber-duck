@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import NavigationMenu from "../../navigationMenu/navigationMenu";
+import { useLocation } from "react-router-dom";
 
-const menu = [
+let menu = [
   {
     text: "About",
     link: "about",
@@ -16,12 +17,31 @@ const menu = [
   },
   {
     text: "News",
+    page: "news",
   },
 ];
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [breakIndex, setBreakIndex] = useState(menu.length);
+
+  const [menuItems, setMenuItems] = useState([...menu]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      console.log(location.pathname);
+      setMenuItems([
+        {
+          text: "Back",
+          page: "/",
+        },
+      ]);
+    } else {
+      setMenuItems([...menu]);
+    }
+  }, [location]);
 
   const setItems = (width) => {
     if (width < 500) {
@@ -52,18 +72,23 @@ const Navigation = () => {
   return (
     <div>
       <ul className="flex justify-end m-10 mb-0 gap-10 text-lg font-[500] ">
-        {menu.slice(0, breakIndex).map((item, index) => {
-          if (index === menu.slice(0, breakIndex).length - 1) {
+        {menuItems.slice(0, breakIndex).map((item, index) => {
+          if (index === menuItems.slice(0, breakIndex).length - 1) {
             return (
-              <div className="relative">
+              <div key={index} className="relative">
                 <li
-                  key={index}
                   className="cursor-pointer flex gap-1 items-center duration-300 "
                   onClick={handleOpen}
                 >
                   More <OpenButton open={open} />
                 </li>
-                <NavigationMenu list={menu.slice(breakIndex - 1)} open={open} />
+                <NavigationMenu
+                  list={menuItems.slice(
+                    location.pathname !== "/" ? -1 : breakIndex - 1
+                  )}
+                  open={open}
+                  setOpen={setOpen}
+                />
               </div>
             );
           }
@@ -93,7 +118,7 @@ const OpenButton = ({ open }) => {
         className="line duration-300 "
         style={{
           transform: open
-            ? "rotate(45deg) translateX(10px) translateY(-10px)"
+            ? "rotate(45deg) translateX(9.5px) translateY(-9.5px)"
             : "rotate(0deg) translateX(0px) translateY(0px)",
         }}
       ></div>

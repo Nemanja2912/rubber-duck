@@ -73,7 +73,7 @@ ul li:hover .open-button .line {
 }
 
 ul li:hover .blink,
-.navigation-menu p:hover .blink {
+.navigation-menu a:hover .blink {
   animation-name: blink;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;

@@ -1,21 +1,20 @@
 import Navigation from "./components/navigation/navigation";
-import HeroSection from "./components/heroSection/heroSection";
-import AboutSection from "./components/aboutSection/aboutSection";
-import ServiceSection from "./components/serviceSection/serviceSection";
-import ContactForm from "./components/contactForm/contactForm";
-import Contact from "./components/contact/contact";
+
+import News from "./components/news/news";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/home/home";
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <HeroSection />
-
-      <AboutSection />
-      <ServiceSection />
-
-      <ContactForm />
-      <Contact />
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/news" element={<News />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

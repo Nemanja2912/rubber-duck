@@ -1,4 +1,8 @@
-const NavigationMenu = ({ list, open }) => {
+import { Link } from "react-router-dom";
+
+const NavigationMenu = ({ list, open, setOpen }) => {
+  console.log(list);
+
   return (
     <div
       className="navigation-menu bg-black ml-auto duration-300 absolute z-10 cursor-pointer right-0 top-0 flex flex-col items-end"
@@ -7,16 +11,33 @@ const NavigationMenu = ({ list, open }) => {
         opacity: open ? 1 : 0,
       }}
     >
-      {list.map((item, index) => (
-        <p
-          className="text-white w-max py-2 px-5 flex items-center gap-1"
-          key={index}
-        >
-          {item.text}
+      {list.map((item, index) => {
+        if (item.page) {
+          return (
+            <Link
+              to={item.page}
+              className="text-white w-max py-2 px-5 flex items-center gap-1"
+              key={index}
+              onClick={() => setOpen(false)}
+            >
+              {item.text}
 
-          <div className="blink bg-white"></div>
-        </p>
-      ))}
+              <div className="blink bg-white"></div>
+            </Link>
+          );
+        }
+
+        return (
+          <p
+            className="text-white w-max py-2 px-5 flex items-center gap-1"
+            key={index}
+          >
+            {item.text}
+
+            <div className="blink bg-white"></div>
+          </p>
+        );
+      })}
     </div>
   );
 };
