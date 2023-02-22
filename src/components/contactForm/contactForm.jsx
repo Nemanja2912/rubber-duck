@@ -70,8 +70,25 @@ const ContactForm = () => {
 
         setTimeout(() => {
           setEnd(true);
+
+          handleSubmit();
         }, 500);
       }
+    }
+  };
+
+  const handleSubmit = async () => {
+    const response = await fetch("https://studentijada.com/minerian/form.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formContent),
+    });
+    if (response.ok) {
+      console.log("Form submitted successfully!");
+    } else {
+      console.error("Form submission error");
     }
   };
 
