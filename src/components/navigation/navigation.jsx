@@ -69,6 +69,18 @@ const Navigation = () => {
     setOpen((prev) => !prev);
   };
 
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      const offsetTop = element.offsetTop - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div>
       <ul className="flex justify-end m-10 mb-0 gap-10 text-lg font-[500] ">
@@ -80,9 +92,11 @@ const Navigation = () => {
                   className="cursor-pointer flex gap-1 items-center duration-300 "
                   onClick={handleOpen}
                 >
-                  More <OpenButton open={open} />
+                  {location.pathname !== "/" ? "Close" : "More"}{" "}
+                  <OpenButton open={open} />
                 </li>
                 <NavigationMenu
+                  handleScroll={handleScroll}
                   list={menuItems.slice(
                     location.pathname !== "/" ? -1 : breakIndex - 1
                   )}
@@ -94,14 +108,13 @@ const Navigation = () => {
           }
 
           return (
-            <a href={`#${item.link}`}>
-              <li
-                key={index}
-                className="cursor-pointer flex gap-1 items-center duration-300"
-              >
-                {item.text} <div className="blink bg-black"></div>
-              </li>
-            </a>
+            <li
+              onClick={() => handleScroll(item.link)}
+              key={index}
+              className="cursor-pointer flex gap-1 items-center duration-300"
+            >
+              {item.text} <div className="blink bg-black"></div>
+            </li>
           );
         })}
       </ul>

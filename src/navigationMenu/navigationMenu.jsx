@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NavigationMenu = ({ list, open, setOpen }) => {
-  console.log(list);
-
+const NavigationMenu = ({ list, open, setOpen, handleScroll }) => {
   return (
     <div
       className="navigation-menu bg-black ml-auto duration-300 absolute z-10 cursor-pointer right-0 top-0 flex flex-col items-end"
@@ -29,6 +27,7 @@ const NavigationMenu = ({ list, open, setOpen }) => {
 
         return (
           <p
+            onClick={() => handleScroll(item.link)}
             className="text-white w-max py-2 px-5 flex items-center gap-1"
             key={index}
           >
