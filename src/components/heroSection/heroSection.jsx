@@ -40,8 +40,23 @@ const HeroSection = () => {
     }, 3000);
   }, []);
 
+  const handleScroll = () => {
+    const element = document.getElementById("about");
+
+    if (element) {
+      const offsetTop = element.offsetTop - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="hero relative">
+    <div
+      className="hero relative"
+      style={{ height: window.innerWidth < 600 ? window.innerHeight : "100vh" }}
+    >
       <div className="wrapper" style={{ opacity: animationLevel >= 1 ? 0 : 1 }}>
         <img src={Image1} alt="" />
         <img src={Image2} alt="" />
@@ -51,22 +66,21 @@ const HeroSection = () => {
         <img src={Image8} alt="" />
         <img src={Image4} alt="" />
       </div>
-      <a href="#about">
-        <img
-          className="cursor-pointer"
-          src={Image9}
-          alt=""
-          style={{
-            transform:
-              animationLevel >= 1
-                ? "rotate(-90deg) scale(0.8)"
-                : "rotate(0deg) scale(1)",
-            left: animationLevel >= 1 ? "49%" : "42.8%",
-            bottom: animationLevel >= 1 ? "5%" : "10.5%",
-            animationName: animationLevel >= 0.5 ? "" : "swing",
-          }}
-        />
-      </a>
+      <img
+        onClick={handleScroll}
+        className="cursor-pointer"
+        src={Image9}
+        alt=""
+        style={{
+          transform:
+            animationLevel >= 1
+              ? "rotate(-90deg) scale(0.8)"
+              : "rotate(0deg) scale(1)",
+          left: animationLevel >= 1 ? "49%" : "42.8%",
+          bottom: animationLevel >= 1 ? "5%" : "10.5%",
+          animationName: animationLevel >= 0.5 ? "" : "swing",
+        }}
+      />
 
       <div className="logo" style={{ opacity: animationLevel >= 1 ? 0 : 1 }}>
         <img src={Image5} className="img1" alt="" />

@@ -129,7 +129,7 @@ const ContactForm = () => {
           <div className="relative">
             {step > 1 ? (
               <textarea
-                className="px-5 py-3 text-3xl w-full font-medium"
+                className="px-5 py-3 text-xl md:text-3xl w-full font-medium"
                 rows={10}
                 ref={inputRef}
                 onKeyDown={handleKeyPress}
@@ -137,7 +137,7 @@ const ContactForm = () => {
             ) : (
               <input
                 type="text"
-                className="px-5 text-3xl h-20 md:h-24 w-full font-medium"
+                className="px-5 text-xl md:text-3xl h-20 md:h-24 w-full font-medium"
                 ref={inputRef}
                 onKeyDown={handleKeyPress}
                 onFocus={() => {
@@ -182,7 +182,7 @@ const ContactForm = () => {
 
       <div
         style={{ opacity: end ? 1 : 0 }}
-        className="duration-500 absolute left-0 right-0 top-0 bottom-0 h-max text-3xl w-max m-auto"
+        className="duration-500 absolute left-10 right-10 top-0 bottom-0 h-max text-3xl text-center m-auto"
       >
         Thank you! We'll be in touch.
       </div>

@@ -96,7 +96,6 @@ ul li:hover .blink,
 /* Hero */
 
 .hero {
-  height: 100vh;
   transform: translateY(-68px);
 }
 
@@ -111,7 +110,7 @@ ul li:hover .blink,
   animation-timing-function: ease-in-out;
 }
 
-.hero > a > img {
+.hero > img {
   position: absolute;
   height: auto;
   width: 4%;
@@ -287,6 +286,7 @@ input,
 textarea {
   background-color: #e5e5e5;
   outline: none;
+  border-radius: 0px;
 }
 
 .bar {
