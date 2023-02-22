@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rubber-duck/static/css/main.f54f94ec.css",
-    "main.js": "/rubber-duck/static/js/main.76b2b67a.js",
+    "main.js": "/rubber-duck/static/js/main.2f870674.js",
     "static/media/agency-logo.jpg": "/rubber-duck/static/media/agency-logo.d4b3a5c000537820ee9e.jpg",
     "static/media/eu_flag_1.jpg": "/rubber-duck/static/media/eu_flag_1.e51fd7efab25e8df3e9c.jpg",
     "static/media/DINPro-Medium.woff": "/rubber-duck/static/media/DINPro-Medium.dad1cac68c46aa65af19.woff",
@@ -12,10 +12,10 @@
     "static/media/logo-en-right-no-back.png": "/rubber-duck/static/media/logo-en-right-no-back.9f7ac0659269d5a6e2c5.png",
     "index.html": "/rubber-duck/index.html",
     "main.f54f94ec.css.map": "/rubber-duck/static/css/main.f54f94ec.css.map",
-    "main.76b2b67a.js.map": "/rubber-duck/static/js/main.76b2b67a.js.map"
+    "main.2f870674.js.map": "/rubber-duck/static/js/main.2f870674.js.map"
   },
   "entrypoints": [
     "static/css/main.f54f94ec.css",
-    "static/js/main.76b2b67a.js"
+    "static/js/main.2f870674.js"
   ]
 }
